@@ -1,5 +1,6 @@
 import org.kohsuke.github.*;
 
+import javax.swing.*;
 import java.io.IOException;
 
 
@@ -9,11 +10,7 @@ public class Main {
 
         GitHub github = null;
         try {
-
-            String pathAlFich = "/home/dam1/Documentos/ENDERMAITER/COD/accessToken.properties";
-            github = new GitHubBuilder()
-                    .fromPropertyFile(pathAlFich)
-                    .build();
+            github = new GitHubBuilder().withOAuthToken(JOptionPane.showInputDialog("Inserte el token:")).build();
         } catch (IOException e) {
             e.printStackTrace();
         }
